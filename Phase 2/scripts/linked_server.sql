@@ -1,25 +1,4 @@
-GO
-CREATE TABLE AUDIT_LOG (
-    audit_id INT IDENTITY(1,1) PRIMARY KEY,
-    table_name VARCHAR(100),
-    action_type VARCHAR(10),
-    changed_by VARCHAR(100),
-    change_time DATETIME DEFAULT GETDATE(),
-    record_id INT,
-    description VARCHAR(255)
-);
-GO
-
-
-EXEC sp_configure 'remote access', 1;
-RECONFIGURE;
-GO
-EXEC sp_configure 'remote query timeout', 0;
-RECONFIGURE;
-GO
-
--- COMPLETE REMOTELINKUSER FIX SCRIPT
--- Run this on your HP Laptop's SQL Server 2025
+-- COMPLETE REMOTELINKUSER SCRIPT
 USE [master];
 GO
 

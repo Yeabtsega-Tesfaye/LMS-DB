@@ -1,0 +1,80 @@
+
+## B1. Confirm SQL Server is installed
+
+In SSMS:
+
+```sql
+SELECT @@VERSION;
+```
+
+📸 Screenshot
+
+---
+
+## B2. Create a Linked Server (to YOUR PC)
+
+Replace `YOUR_PC_IP` with your real IP
+Replace `YOUR_SERVER_NAME` if needed (often `.` or `DESKTOP-XXX`)
+
+```sql
+EXEC sp_addlinkedserver
+    @server = 'CourseMgmt_Link',
+    @srvproduct = '',
+    @provider = 'SQLNCLI',
+    @datasrc = 'YOUR_PC_IP';
+GO
+```
+
+📌 Example:
+
+```sql
+@datasrc = '192.168.1.10'
+```
+
+📸 Screenshot
+
+---
+
+## B3. Configure login mapping (THIS IS CRITICAL)
+
+```sql
+EXEC sp_addlinkedsrvlogin
+    @rmtsrvname = 'CourseMgmt_Link',
+    @useself = 'FALSE',
+    @rmtuser = 'lms_remote_login',
+    @rmtpassword = 'Strong@123';
+GO
+```
+
+📌 This tells SQL Server how to authenticate to your PC.
+
+📸 Screenshot
+
+---
+
+## B4. Test remote access (MAIN EVIDENCE)
+
+```sql
+SELECT *
+FROM CourseMgmt_Link.CourseManagementDB.dbo.STUDENT;
+```
+
+If it shows rows or empty result **without error** → SUCCESS ✅
+
+📸 Screenshot this (VERY IMPORTANT)
+
+---
+
+## B5. Show cross-server query example
+
+```sql
+SELECT
+    s.student_id,
+    s.first_name,
+    s.last_name
+FROM CourseMgmt_Link.CourseManagementDB.dbo.STUDENT s;
+```
+
+📸 Screenshot
+
+---
