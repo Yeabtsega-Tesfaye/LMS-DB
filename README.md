@@ -6,7 +6,7 @@ This repository contains the schema, seed data, business logic, operational scri
 - Primary schema and seed data: Phase 1/scripts (DDLquery.sql, DMLscript.sql)
 - Advanced/operational features: Phase 2/scripts (views, stored procedures, triggers, audit, backup/restore, encryption, linked servers, roles, transaction tests)
 - Design docs and diagram: Phase 1/Phase 1 Report.pdf and Phase 1/RE-Diagram.png
-- Author / owner: Yeabtsega-Tesfaye
+- Author / owner: GROUP-1
 
 Table of contents
 - About
