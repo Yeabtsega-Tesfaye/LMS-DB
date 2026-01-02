@@ -69,3 +69,5 @@ GO
 PRINT '--- SCRIPT COMPLETE ---';
 PRINT 'Please return to your new PC and retest the linked server connection.';
 GO
+
+EXEC sp_linkedservers;

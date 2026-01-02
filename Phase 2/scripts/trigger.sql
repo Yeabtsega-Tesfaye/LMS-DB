@@ -67,6 +67,8 @@ BEGIN
 END;
 GO
 
+use CourseManagementDB
+
 EXEC sp_enroll_student 2, 5;
 EXEC sp_cancel_enrollment 1, 1;
 
